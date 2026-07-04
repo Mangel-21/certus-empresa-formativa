@@ -1,0 +1,7 @@
+backend/target/
+front-certus/node_modules/
+front-certus/dist/
+.vscode/
+.env
+*.log
+

@@ -1,0 +1,73 @@
+<div class="feed-layout">
+  <header class="top-nav">
+    <div class="nav-brand">
+      <h2>CERTUS TI</h2>
+    </div>
+    <div class="nav-links">
+      <a routerLink="/feed" class="active">Muro</a>
+      <a routerLink="/concursos">Concursos</a>
+      <a routerLink="/profile">Perfil</a>
+    </div>
+    <div class="nav-actions">
+      <p-button label="Cerrar sesión" icon="pi pi-sign-out" styleClass="p-button-outlined" (onClick)="logout()"></p-button>
+    </div>
+  </header>
+
+  <main class="feed-container">
+    <div class="left-sidebar">
+      <p-card header="Mi Perfil">
+        <div *ngIf="user" style="display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 1rem;">
+          <img [src]="user.photoUrl" alt="Foto de perfil" style="width: 80px; height: 80px; border-radius: 50%; margin-bottom: 1rem;">
+          <h3 style="margin: 0; color: var(--primary-color);">{{ user.name }}</h3>
+          <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #666;">{{ user.email }}</p>
+        </div>
+        <p>Estudiante de Desarrollo de Sistemas</p>
+        <p>Ciclo: 4to</p>
+      </p-card>
+    </div>
+    
+    <div class="feed-content">
+      <p-card>
+        <h3>Publicar algo</h3>
+        <textarea rows="3" pInputTextarea style="width: 100%; border-radius: 8px;" placeholder="¿Qué estás aprendiendo hoy?" [(ngModel)]="postText"></textarea>
+        <div style="text-align: right; margin-top: 1rem;">
+          <p-button label="Publicar" icon="pi pi-send" (click)="publicar()"></p-button>
+        </div>
+      </p-card>
+      
+      <div class="posts-list" style="margin-top: 2rem;">
+        <p-card *ngFor="let post of posts" styleClass="mb-3">
+          <div class="post-header" style="display: flex; align-items: center; gap: 1rem;">
+            <div class="avatar" style="width: 40px; height: 40px; border-radius: 50%; background: #ccc; overflow: hidden;">
+              <img *ngIf="post.authorPicture" [src]="post.authorPicture" alt="Avatar" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div>
+              <strong>{{ post.authorName }}</strong>
+              <div style="font-size: 0.8rem; color: #666;">{{ post.timeAgo }}</div>
+            </div>
+          </div>
+          <p style="margin-top: 1rem;">{{ post.content }}</p>
+          <ng-template pTemplate="footer">
+            <p-button icon="pi pi-thumbs-up" label="Me gusta" styleClass="p-button-text"></p-button>
+            <p-button icon="pi pi-comment" label="Comentar" styleClass="p-button-text p-button-secondary"></p-button>
+          </ng-template>
+        </p-card>
+      </div>
+    </div>
+    
+    <div class="right-sidebar">
+      <p-card header="Próximos Eventos">
+        <ul style="list-style: none; padding: 0;">
+          <li style="margin-bottom: 1rem;">
+            <strong>Hackathon CERTUS 2026</strong><br>
+            <span style="font-size: 0.8rem; color: #666;">15 de Julio</span>
+          </li>
+          <li>
+            <strong>Taller de Docker</strong><br>
+            <span style="font-size: 0.8rem; color: #666;">20 de Julio</span>
+          </li>
+        </ul>
+      </p-card>
+    </div>
+  </main>
+</div>

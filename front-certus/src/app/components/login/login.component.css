@@ -1,0 +1,79 @@
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  font-family: 'Inter', sans-serif;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+::ng-deep .login-card .p-card {
+  border-radius: 16px;
+  box-shadow: none;
+  background: transparent;
+}
+
+::ng-deep .login-card .p-card-header {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+::ng-deep .login-card .p-card-body {
+  padding: 2rem;
+}
+
+.header-container {
+  padding: 2rem 2rem 1rem 2rem;
+  text-align: center;
+  background: #f8fafc;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.header-container h2 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  margin: 0.5rem 0 0 0;
+  color: #64748b;
+  font-size: 1rem;
+}
+
+.login-content {
+  text-align: center;
+}
+
+.login-content p {
+  color: #475569;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.google-btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+}
+
+.google-btn-container:hover {
+  transform: translateY(-2px);
+}
