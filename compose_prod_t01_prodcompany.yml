@@ -1,5 +1,5 @@
 version: '3.8'
-
+# docker-compose -f compose_prod_t01_prodcompany.yml --env-file .env.prod up -d
 services:
   api-backend:
     build:
